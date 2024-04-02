@@ -81,14 +81,6 @@ class CoordinateSystem:
         for item in self.segments:
             if item.one_intersection() == True:
                 self.counter += 1
-    
-    def get_info(self):
-        '''
-        Prints value of attribute counter and each segment from attribute segments.
-        '''
-        for segment in self.segments:
-            print(segment.cut)
-        print(self.counter)
    
 
 p1 = Point((-3, 4))
@@ -107,4 +99,3 @@ cs.add_segment(segment1)
 cs.add_segment(segment2)
 cs.add_segment(segment3)
 cs.axis_intersection()
-cs.get_info()
