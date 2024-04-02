@@ -44,18 +44,17 @@ class Segment:
         if isinstance(point1, Point) and isinstance(point2, Point):
             self.point1 = point1
             self.point2 = point2
-            self.cut = (point1.coordinates, point2.coordinates)
 
     
     def one_intersection(self):
         '''
         Checks the segment for intersection of only one axis.
         '''
-        if self.cut[0] == (0, 0) or self.cut[1] == (0, 0):
+        if self.point1.coordinates == (0, 0) or self.point2.coordinates == (0, 0):
             return False
-        elif self.cut[0][0] * self.cut[1][0] < 0 and self.cut[0][1] * self.cut[1][1] >= 0:
+        elif self.point1.x * self.point2.x < 0 and self.point1.y * self.point2.y >= 0:
             return True
-        elif self.cut[0][0] * self.cut[1][0] >= 0 and self.cut[0][1] * self.cut[1][1] < 0:
+        elif self.point1.x * self.point2.x >= 0 and self.point1.y * self.point2.y < 0:
             return True
         
 
@@ -73,6 +72,7 @@ class CoordinateSystem:
         '''
         if isinstance(segment, Segment):
             self.segments.append(segment)
+        return self.segments
 
     def axis_intersection(self):
         '''
@@ -81,6 +81,7 @@ class CoordinateSystem:
         for item in self.segments:
             if item.one_intersection() == True:
                 self.counter += 1
+        return self.counter
    
 
 p1 = Point((-3, 4))
@@ -97,5 +98,5 @@ segment3 = Segment(p5, p6)
 cs = CoordinateSystem()
 cs.add_segment(segment1)
 cs.add_segment(segment2)
-cs.add_segment(segment3)
-cs.axis_intersection()
+print(cs.add_segment(segment3))
+print(cs.axis_intersection())
