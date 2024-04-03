@@ -30,7 +30,7 @@ class Point:
         Returns a new point whose coordinates are the sum of the corresponding coordinates of the other two points.
         '''
         new_point = ((self.x + other.x), (self.x + other.x))
-        return new_point
+        return Point(new_point)
     
     def __str__(self):
         return f'Точка на плоскости: {self.coordinates}. Координата X: {self.x}, координата Y: {self.y}'
@@ -42,5 +42,6 @@ point2 = Point((8, 7))
 print(point2.get_x())
 print(point2.get_y())
 print(point1.distance(point2))
-print(point1.sum(point2))
 print(point2)
+new_p = point1.sum(point2)
+print(new_p)
