@@ -30,10 +30,13 @@ class Point:
         Returns a new point whose coordinates are the sum of the corresponding coordinates of the other two points.
         '''
         new_point = ((self.x + other.x), (self.x + other.x))
-        return new_point
+        return Point(new_point)
     
     def __str__(self):
         return f'Точка на плоскости: {self.coordinates}. Координата X: {self.x}, координата Y: {self.y}'
+    
+    def __repr__(self):
+        return f'{self.coordinates}, {self.x}, {self.y}'
     
 
 class Segment:

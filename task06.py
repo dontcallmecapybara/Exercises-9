@@ -35,6 +35,8 @@ class Point:
     def __str__(self):
         return f'Точка на плоскости: {self.coordinates}. Координата X: {self.x}, координата Y: {self.y}'
     
+    def __repr__(self):
+        return f'{self.coordinates}, {self.x}, {self.y}'
 
 point1 = Point((5, 5))
 point2 = Point((8, 7))
